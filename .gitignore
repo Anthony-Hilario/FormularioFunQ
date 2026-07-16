@@ -1,0 +1,33 @@
+# --- Ambiente Virtual (O "node_modules" do Python) ---
+# Aqui ficam salvas as bibliotecas que você instalou (como o próprio Django).
+# Assim como no Node, nunca enviamos isso ao GitHub.
+venv/
+.venv/
+env/
+ENV/
+
+# --- Arquivos do Python ---
+# Arquivos compilados pelo Python para acelerar a execução. Eles são gerados sozinhos.
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# --- Banco de Dados Local ---
+# O banco padrão de desenvolvimento do Django. 
+# Você quer que ele seja apenas local para não expor seus dados de teste ou sobrescrever o de outras pessoas.
+db.sqlite3
+db.sqlite3-journal
+
+# --- Segurança e Configurações Sensíveis ---
+# Onde você guarda senhas, chaves de API e a SECRET_KEY do Django.
+.env
+*.env
+
+# --- Arquivos de Mídia ---
+# Pasta onde ficam os arquivos de upload enviados pelos usuários (ex: fotos de perfil).
+media/
+
+# --- Pastas de IDEs (Opcional) ---
+.vscode/
+.idea/
