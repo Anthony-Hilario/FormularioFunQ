@@ -18,4 +18,5 @@ from app_FormularioFunQ import views
 
 urlpatterns = [
     path('home/', views.PaginaFormulario, name='PaginaFormulario'),
+    path('login/', views.PaginaLogin, name='PaginaLogin')
 ]
