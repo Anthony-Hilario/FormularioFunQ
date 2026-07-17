@@ -1,11 +1,51 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Área de Login</title>
+    <title>Acesso ao Questionário</title>
+    <!-- Vinculação do arquivo CSS externo -->
+    <link rel="stylesheet" href="login.css">
 </head>
 <body>
-    <h1>Login</h1>
+
+    <div class="login-container">
+        <h1>Bem-vindo(a)!</h1>
+        <p>Por favor, informe seus dados para iniciar o questionário sobre a atividade.</p>
+
+        <!-- Configure os atributos 'method' e 'action' de acordo com a sua rota backend -->
+        <form id="access-form" method="POST" action="#">
+            
+            <!-- Campo Nome -->
+            <div class="input-block">
+                <label for="student-name">Nome Completo</label>
+                <input 
+                    type="text" 
+                    id="student-name" 
+                    name="name" 
+                    placeholder="Digite seu nome..." 
+                    required 
+                    autocomplete="name"
+                >
+            </div>
+
+            <!-- Campo Idade -->
+            <div class="input-block">
+                <label for="student-age">Idade</label>
+                <input 
+                    type="number" 
+                    id="student-age" 
+                    name="age" 
+                    placeholder="Ex: 14" 
+                    min="1" 
+                    max="120" 
+                    required
+                >
+            </div>
+
+            <button type="submit">Iniciar Questionário</button>
+        </form>
+    </div>
+
 </body>
 </html>

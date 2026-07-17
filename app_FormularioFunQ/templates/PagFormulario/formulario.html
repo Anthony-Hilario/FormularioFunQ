@@ -1,11 +1,247 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário</title>
+    <link rel="stylesheet" href="formulario.css">
+    <title>Questionário FunQ</title>
 </head>
 <body>
-    <h1>Hello World</h1>
+
+    <form id="funq-form" method="POST" action="#">
+        <h1>Questionário sobre a Atividade</h1>
+        <p>Por favor, responda com que frequência você se sentiu assim durante a atividade.</p>
+
+        <!-- 1. AUTONOMIA -->
+        <div class="dimension-section">
+            <h2>Autonomia</h2>
+            
+            <div class="question-block">
+                <div class="question-text">1. Eu pude opinar sobre o que fazer.</div>
+                <div class="options-group">
+                    <label class="option-label"><input type="radio" name="q1" value="1" required> Nunca</label>
+                    <label class="option-label"><input type="radio" name="q1" value="2"> Raramente</label>
+                    <label class="option-label"><input type="radio" name="q1" value="3"> Às vezes</label>
+                    <label class="option-label"><input type="radio" name="q1" value="4"> Frequentemente</label>
+                    <label class="option-label"><input type="radio" name="q1" value="5"> Sempre</label>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <div class="question-text">2. Eu pude decidir como fazer as coisas.</div>
+                <div class="options-group">
+                    <label class="option-label"><input type="radio" name="q2" value="1" required> Nunca</label>
+                    <label class="option-label"><input type="radio" name="q2" value="2"> Raramente</label>
+                    <label class="option-label"><input type="radio" name="q2" value="3"> Às vezes</label>
+                    <label class="option-label"><input type="radio" name="q2" value="4"> Frequentemente</label>
+                    <label class="option-label"><input type="radio" name="q2" value="5"> Sempre</label>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <div class="question-text">3. Senti-me livre para fazer as coisas do meu jeito.</div>
+                <div class="options-group">
+                    <label class="option-label"><input type="radio" name="q3" value="1" required> Nunca</label>
+                    <label class="option-label"><input type="radio" name="q3" value="2"> Raramente</label>
+                    <label class="option-label"><input type="radio" name="q3" value="3"> Às vezes</label>
+                    <label class="option-label"><input type="radio" name="q3" value="4"> Frequentemente</label>
+                    <label class="option-label"><input type="radio" name="q3" value="5"> Sempre</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. DESAFIO -->
+        <div class="dimension-section">
+            <h2>Desafio</h2>
+            
+            <div class="question-block">
+                <div class="question-text">4. A atividade foi fácil demais para mim.</div>
+                <div class="options-group">
+                    <label class="option-label"><input type="radio" name="q4" value="1" required> Nunca</label>
+                    <label class="option-label"><input type="radio" name="q4" value="2"> Raramente</label>
+                    <label class="option-label"><input type="radio" name="q4" value="3"> Às vezes</label>
+                    <label class="option-label"><input type="radio" name="q4" value="4"> Frequentemente</label>
+                    <label class="option-label"><input type="radio" name="q4" value="5"> Sempre</label>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <div class="question-text">5. A atividade foi difícil demais para mim.</div>
+                <div class="options-group">
+                    <label class="option-label"><input type="radio" name="q5" value="1" required> Nunca</label>
+                    <label class="option-label"><input type="radio" name="q5" value="2"> Raramente</label>
+                    <label class="option-label"><input type="radio" name="q5" value="3"> Às vezes</label>
+                    <label class="option-label"><input type="radio" name="q5" value="4"> Frequentemente</label>
+                    <label class="option-label"><input type="radio" name="q5" value="5"> Sempre</label>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <div class="question-text">6. Senti que os desafios eram adequados para mim.</div>
+                <div class="options-group">
+                    <label class="option-label"><input type="radio" name="q6" value="1" required> Nunca</label>
+                    <label class="option-label"><input type="radio" name="q6" value="2"> Raramente</label>
+                    <label class="option-label"><input type="radio" name="q6" value="3"> Às vezes</label>
+                    <label class="option-label"><input type="radio" name="q6" value="4"> Frequentemente</label>
+                    <label class="option-label"><input type="radio" name="q6" value="5"> Sempre</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. PRAZER / DELÍCIA -->
+        <div class="dimension-section">
+            <h2>Prazer</h2>
+            
+            <div class="question-block">
+                <div class="question-text">7. Eu me diverti.</div>
+                <div class="options-group">
+                    <label class="option-label"><input type="radio" name="q7" value="1" required> Nunca</label>
+                    <label class="option-label"><input type="radio" name="q7" value="2"> Raramente</label>
+                    <label class="option-label"><input type="radio" name="q7" value="3"> Às vezes</label>
+                    <label class="option-label"><input type="radio" name="q7" value="4"> Frequentemente</label>
+                    <label class="option-label"><input type="radio" name="q7" value="5"> Sempre</label>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <div class="question-text">8. Eu gostei da atividade.</div>
+                <div class="options-group">
+                    <label class="option-label"><input type="radio" name="q8" value="1" required> Nunca</label>
+                    <label class="option-label"><input type="radio" name="q8" value="2"> Raramente</label>
+                    <label class="option-label"><input type="radio" name="q8" value="3"> Às vezes</label>
+                    <label class="option-label"><input type="radio" name="q8" value="4"> Frequentemente</label>
+                    <label class="option-label"><input type="radio" name="q8" value="5"> Sempre</label>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <div class="question-text">9. Eu gostaria de fazer essa atividade novamente.</div>
+                <div class="options-group">
+                    <label class="option-label"><input type="radio" name="q9" value="1" required> Nunca</label>
+                    <label class="option-label"><input type="radio" name="q9" value="2"> Raramente</label>
+                    <label class="option-label"><input type="radio" name="q9" value="3"> Às vezes</label>
+                    <label class="option-label"><input type="radio" name="q9" value="4"> Frequentemente</label>
+                    <label class="option-label"><input type="radio" name="q9" value="5"> Sempre</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. IMERSÃO -->
+        <div class="dimension-section">
+            <h2>Imersão</h2>
+            
+            <div class="question-block">
+                <div class="question-text">10. Esqueci de tudo ao meu redor.</div>
+                <div class="options-group">
+                    <label class="option-label"><input type="radio" name="q10" value="1" required> Nunca</label>
+                    <label class="option-label"><input type="radio" name="q10" value="2"> Raramente</label>
+                    <label class="option-label"><input type="radio" name="q10" value="3"> Às vezes</label>
+                    <label class="option-label"><input type="radio" name="q10" value="4"> Frequentemente</label>
+                    <label class="option-label"><input type="radio" name="q10" value="5"> Sempre</label>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <div class="question-text">11. Perdi a noção do tempo.</div>
+                <div class="options-group">
+                    <label class="option-label"><input type="radio" name="q11" value="1" required> Nunca</label>
+                    <label class="option-label"><input type="radio" name="q11" value="2"> Raramente</label>
+                    <label class="option-label"><input type="radio" name="q11" value="3"> Às vezes</label>
+                    <label class="option-label"><input type="radio" name="q11" value="4"> Frequentemente</label>
+                    <label class="option-label"><input type="radio" name="q11" value="5"> Sempre</label>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <div class="question-text">12. Eu estava totalmente focado na atividade.</div>
+                <div class="options-group">
+                    <label class="option-label"><input type="radio" name="q12" value="1" required> Nunca</label>
+                    <label class="option-label"><input type="radio" name="q12" value="2"> Raramente</label>
+                    <label class="option-label"><input type="radio" name="q12" value="3"> Às vezes</label>
+                    <label class="option-label"><input type="radio" name="q12" value="4"> Frequentemente</label>
+                    <label class="option-label"><input type="radio" name="q12" value="5"> Sempre</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. PERDA DE BARREIRAS SOCIAIS -->
+        <div class="dimension-section">
+            <h2>Perda de Barreiras Sociais</h2>
+            
+            <div class="question-block">
+                <div class="question-text">13. Senti-me parte do grupo.</div>
+                <div class="options-group">
+                    <label class="option-label"><input type="radio" name="q13" value="1" required> Nunca</label>
+                    <label class="option-label"><input type="radio" name="q13" value="2"> Raramente</label>
+                    <label class="option-label"><input type="radio" name="q13" value="3"> Às vezes</label>
+                    <label class="option-label"><input type="radio" name="q13" value="4"> Frequentemente</label>
+                    <label class="option-label"><input type="radio" name="q13" value="5"> Sempre</label>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <div class="question-text">14. Senti-me confortável com os outros.</div>
+                <div class="options-group">
+                    <label class="option-label"><input type="radio" name="q14" value="1" required> Nunca</label>
+                    <label class="option-label"><input type="radio" name="q14" value="2"> Raramente</label>
+                    <label class="option-label"><input type="radio" name="q14" value="3"> Às vezes</label>
+                    <label class="option-label"><input type="radio" name="q14" value="4"> Frequentemente</label>
+                    <label class="option-label"><input type="radio" name="q14" value="5"> Sempre</label>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <div class="question-text">15. Senti que podia ser eu mesmo.</div>
+                <div class="options-group">
+                    <label class="option-label"><input type="radio" name="q15" value="1" required> Nunca</label>
+                    <label class="option-label"><input type="radio" name="q15" value="2"> Raramente</label>
+                    <label class="option-label"><input type="radio" name="q15" value="3"> Às vezes</label>
+                    <label class="option-label"><input type="radio" name="q15" value="4"> Frequentemente</label>
+                    <label class="option-label"><input type="radio" name="q15" value="5"> Sempre</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. ESTRESSE -->
+        <div class="dimension-section">
+            <h2>Estresse</h2>
+            
+            <div class="question-block">
+                <div class="question-text">16. Senti-me estressado(a).</div>
+                <div class="options-group">
+                    <label class="option-label"><input type="radio" name="q16" value="1" required> Nunca</label>
+                    <label class="option-label"><input type="radio" name="q16" value="2"> Raramente</label>
+                    <label class="option-label"><input type="radio" name="q16" value="3"> Às vezes</label>
+                    <label class="option-label"><input type="radio" name="q16" value="4"> Frequentemente</label>
+                    <label class="option-label"><input type="radio" name="q16" value="5"> Sempre</label>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <div class="question-text">17. Senti-me frustrado(a).</div>
+                <div class="options-group">
+                    <label class="option-label"><input type="radio" name="q17" value="1" required> Nunca</label>
+                    <label class="option-label"><input type="radio" name="q17" value="2"> Raramente</label>
+                    <label class="option-label"><input type="radio" name="q17" value="3"> Às vezes</label>
+                    <label class="option-label"><input type="radio" name="q17" value="4"> Frequentemente</label>
+                    <label class="option-label"><input type="radio" name="q17" value="5"> Sempre</label>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <div class="question-text">18. Senti-me entediado(a).</div>
+                <div class="options-group">
+                    <label class="option-label"><input type="radio" name="q18" value="1" required> Nunca</label>
+                    <label class="option-label"><input type="radio" name="q18" value="2"> Raramente</label>
+                    <label class="option-label"><input type="radio" name="q18" value="3"> Às vezes</label>
+                    <label class="option-label"><input type="radio" name="q18" value="4"> Frequentemente</label>
+                    <label class="option-label"><input type="radio" name="q18" value="5"> Sempre</label>
+                </div>
+            </div>
+        </div>
+
+        <button type="submit">Enviar Respostas</button>
+    </form>
+
 </body>
 </html>
