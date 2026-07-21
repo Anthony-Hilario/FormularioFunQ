@@ -8,7 +8,9 @@
 </head>
 <body>
 
-    <form id="funq-form" method="POST" action="#">
+    <form id="funq-form" method="post" action="{% url 'listagem_respostas' %}">
+        {% csrf_token %}
+
         <h1>Questionário sobre a Atividade</h1>
         <p>Por favor, responda com que frequência você se sentiu assim durante a atividade.</p>
 
@@ -88,7 +90,7 @@
             </div>
         </div>
 
-        <!-- 3. PRAZER / DELÍCIA -->
+        <!-- 3. PRAZER -->
         <div class="dimension-section">
             <h2>Prazer</h2>
             

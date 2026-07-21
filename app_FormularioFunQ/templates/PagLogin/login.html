@@ -14,8 +14,8 @@
         <p>Por favor, informe seus dados para iniciar o questionário sobre a atividade.</p>
 
         <!-- Configure os atributos 'method' e 'action' de acordo com a sua rota backend -->
-        <form id="access-form" method="POST" action="#">
-            
+        <form id="access-form" method="post" action="{% url 'listagem_alunos' %}">
+            {% csrf_token %}
             <!-- Campo Nome -->
             <div class="input-block">
                 <label for="student-name">Nome Completo</label>
@@ -43,7 +43,9 @@
                 >
             </div>
 
-            <button type="submit">Iniciar Questionário</button>
+            <button type="submit">
+                Iniciar Questionário
+            </button>
         </form>
     </div>
 
