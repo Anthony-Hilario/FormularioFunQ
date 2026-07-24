@@ -20,14 +20,25 @@ def Alunos(request):
     novo_aluno.idade = request.POST.get('age')
     novo_aluno.save()
 
+    request.session['id_aluno'] = novo_aluno.id
+
     return redirect('PaginaFormulario')
 
+
 def Respostas(request):
+
+    id_aluno = request.session.get('id_aluno')
+
+    aluno = Aluno.objects.get(id=id_aluno)
+
     nova_resposta = RespostaFormulario()
+    nova_resposta.aluno = aluno
 
     for i in range(1, 19):
         setattr(nova_resposta, f'q{i}', request.POST.get(f'q{i}'))
 
     nova_resposta.save()
+
+    request.session.pop('id_aluno', None)
 
     return redirect('PaginaAgradecimentos')
