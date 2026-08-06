@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Aluno, RespostaFormulario
 
 # Create your views here.
@@ -25,20 +25,39 @@ def Alunos(request):
     return redirect('PaginaFormulario')
 
 
+
+QUESTOES_REVERSAS = {4, 5, 16, 17, 18}
+ESCALA_MIN = 1
+ESCALA_MAX = 5
+
 def Respostas(request):
+    if request.method == 'POST':
+        id_aluno = request.session.get('id_aluno')
+        if not id_aluno:
+            return redirect('PaginaLogin')  # Redireciona se a sessão expirar
 
-    id_aluno = request.session.get('id_aluno')
+        aluno = get_object_or_404(Aluno, id=id_aluno)
 
-    aluno = Aluno.objects.get(id=id_aluno)
+        nova_resposta = RespostaFormulario()
+        nova_resposta.aluno = aluno
 
-    nova_resposta = RespostaFormulario()
-    nova_resposta.aluno = aluno
+        for i in range(1, 19):
+            valor_str = request.POST.get(f'q{i}')
 
-    for i in range(1, 19):
-        setattr(nova_resposta, f'q{i}', request.POST.get(f'q{i}'))
+            if valor_str is not None and valor_str.isdigit():
+                valor = int(valor_str)
 
-    nova_resposta.save()
+                # Se a pergunta for invertida, aplica a fórmula de inversão
+                if i in QUESTOES_REVERSAS:
+                    valor = (ESCALA_MAX + ESCALA_MIN) - valor
 
-    request.session.pop('id_aluno', None)
+                setattr(nova_resposta, f'q{i}', valor)
+            else:
+                setattr(nova_resposta, f'q{i}', None)
 
-    return redirect('PaginaAgradecimentos')
+        nova_resposta.save()
+
+        # Limpa a sessão após salvar com sucesso
+        request.session.pop('id_aluno', None)
+
+        return redirect('PaginaAgradecimentos')

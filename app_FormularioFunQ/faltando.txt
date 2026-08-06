@@ -1,0 +1,5 @@
+coisas que ainda faltam
+- alterar os pontos das questões Reversed (R) (OK)
+- responsividade do layout (mobile e pc)
+
+Questões que são Reversed: 4, 5, 16, 17 e 18.
