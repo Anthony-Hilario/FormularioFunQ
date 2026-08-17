@@ -11,6 +11,9 @@ def PaginaLogin(request):
 def PaginaAgradecimentos(request):
     return render(request, 'PagAgradecimentos/agradecimentos.html')
 
+def PaginaInicial(request):
+    return render(request, 'PagInicial/inicio.html')
+
 
 
 def Alunos(request):

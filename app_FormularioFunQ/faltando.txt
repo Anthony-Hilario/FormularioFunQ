@@ -1,11 +1,9 @@
 coisas que ainda faltam
 - responsividade do layout (mobile-first e pc)
-- questões abertas:
-    - O que você achou da atividade realizada? 
-    - Como você se sentiu durante a realização do jogo?
-    - Você acredita que o jogo ajudou na compreensão dos conceitos trabalhados?
-    - O que fez você permanecer interessado na atividade?
-    - O que você menos gostou na atividade?
-    - O que você mudaria no jogo?
+- Página inicial:
+    - Botão iniciar questionário
+    - Sobre o questionário (o funq, equipe de desenvolvimento, como funciona)
+
+
 
 Questões que são Reversed: 4, 5, 16, 17 e 18.
