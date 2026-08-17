@@ -28,3 +28,9 @@ class RespostaFormulario(models.Model):
     q17 = models.PositiveSmallIntegerField()
     q18 = models.PositiveSmallIntegerField()
 
+    q19_opiniao_atividade = models.TextField(blank=True, null=True)
+    q20_sentimento_jogo = models.TextField(blank=True, null=True)
+    q21_compreensao_conceitos = models.TextField(blank=True, null=True)
+    q22_fator_interesse = models.TextField(blank=True, null=True)
+    q23_pontos_negativos = models.TextField(blank=True, null=True)
+    q24_sugestoes_mudanca = models.TextField(blank=True, null=True)

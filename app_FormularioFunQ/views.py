@@ -55,6 +55,13 @@ def Respostas(request):
             else:
                 setattr(nova_resposta, f'q{i}', None)
 
+        nova_resposta.q19_opiniao_atividade = request.POST.get('q19_opiniao_atividade')
+        nova_resposta.q20_sentimento_jogo = request.POST.get('q20_sentimento_jogo')
+        nova_resposta.q21_compreensao_conceitos = request.POST.get('q21_compreensao_conceitos')
+        nova_resposta.q22_fator_interesse = request.POST.get('q22_fator_interesse')
+        nova_resposta.q23_pontos_negativos = request.POST.get('q23_pontos_negativos')
+        nova_resposta.q24_sugestoes_mudanca = request.POST.get('q24_sugestoes_mudanca')
+
         nova_resposta.save()
 
         # Limpa a sessão após salvar com sucesso
