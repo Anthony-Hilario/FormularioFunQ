@@ -1,9 +1,15 @@
-coisas que ainda faltam
+Anotações:
 - responsividade do layout (mobile-first e pc)
-- Página inicial:
+- Página inicial e demais páginas da navbar:
     - Botão iniciar questionário
-    - Sobre o questionário (o funq, equipe de desenvolvimento, como funciona)
+    - Sobre o questionário 
+    - O funq
+    - Equipe de desenvolvimento
+    - O IFRN
+- Página ADM: criar tela de admin para especificar o grupo 
+de teste e o condutor da pesquisa.
+- Adicionar duas colunas ao banco de dados (grupo: text; pesquisador: text)
 
 
 
-Questões que são Reversed: 4, 5, 16, 17 e 18.
+Questões Reversed: 4, 5, 16, 17 e 18.
