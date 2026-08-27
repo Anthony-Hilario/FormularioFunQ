@@ -1,13 +1,22 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="inicio.css">
+    <link rel="stylesheet" href="{% static 'PagInicial/style.css' %}">
     <title>Início Questionário</title>
 </head>
 <body>
-    <h1>Pagina inicial</h1>
+    <div class="cabecalho">
+        <h1 class="boas-vindas">Bem-Vindo(a)</h1>
+
+        <nav class="barra-nav">
+            <a href="{% url 'PaginaSobre' %}">O Questionário</a>
+            <a href="{% url 'PaginaEquipe' %}">Nossa Equipe</a>
+            <a href="{% url 'PaginaIFRN' %}">O IFRN</a>
+        </nav>
+    </div>
     <p>Sua opinião é fundamental para compreendermos o aprendizado e a jogabilidade.</p>
 
     <button>

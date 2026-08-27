@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.btn-iniciar {
+    text-decoration: none;
+    color: black;
+}
+
+.cabecalho {
+    display: flex;
+    justify-content: space-between; /* Empurra o h1 para a esquerda e a nav para a direita */
+    align-items: center;            /* Alinha os itens verticalmente ao centro */
+}
+
+.barra-nav {
+    display: flex;
+    gap: 20px;                      /* Espaçamento entre cada link do menu */
+}

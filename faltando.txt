@@ -1,9 +1,8 @@
 Anotações:
 - responsividade do layout (mobile-first e pc)
 - Página inicial e demais páginas da navbar:
-    - Botão iniciar questionário
-    - Sobre o questionário 
-    - O funq
+    - Botão iniciar questionário (OK)
+    - Sobre o questionário e o funq
     - Equipe de desenvolvimento
     - O IFRN
 - Página ADM: criar tela de admin para especificar o grupo 

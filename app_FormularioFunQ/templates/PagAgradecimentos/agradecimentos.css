@@ -1,0 +1,9 @@
+body {
+    display: block;
+    text-align: center;
+}
+
+small {
+    color: blue;
+    text-decoration: underline double;
+}

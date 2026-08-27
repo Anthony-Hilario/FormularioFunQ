@@ -14,6 +14,15 @@ def PaginaAgradecimentos(request):
 def PaginaInicial(request):
     return render(request, 'PagInicial/inicio.html')
 
+def PaginaSobre(request):
+    return render(request, 'PagInicial/sobre.html')
+
+def PaginaEquipe(request):
+    return render(request, 'PagInicial/equipe.html')
+
+def PaginaIFRN(request):
+    return render(request, 'PagInicial/ifrn.html')
+
 
 
 def Alunos(request):

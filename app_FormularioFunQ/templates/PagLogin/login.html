@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -5,13 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acesso ao Questionário</title>
     <!-- Vinculação do arquivo CSS externo -->
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="{% static 'PagLogin/login.css' %}">
 </head>
 <body>
 
     <div class="login-container">
-        <h1>Bem-vindo(a)!</h1>
-        <p>Por favor, informe seus dados para iniciar o questionário sobre a atividade.</p>
+        <h1>Por favor, informe seus dados para iniciar o questionário sobre a atividade.</h1>
 
         <!-- Configure os atributos 'method' e 'action' de acordo com a sua rota backend -->
         <form id="access-form" method="post" action="{% url 'listagem_alunos' %}">
