@@ -5,10 +5,12 @@ Anotações:
     - Sobre o questionário e o funq
     - Equipe de desenvolvimento
     - O IFRN
-- Página ADM: criar tela de admin para especificar o grupo 
+- Página ADM: criar tela de admin para especificar o grupo
 de teste e o condutor da pesquisa.
 - Adicionar duas colunas ao banco de dados (grupo: text; pesquisador: text)
 
-
+*Para possíveis futuros usos de arquivos JavaScript ou imagens
+<script src="{% static 'app_FormularioFunQ/js/script.js' %}"></script>
+<img src="{% static 'app_FormularioFunQ/img/logo.png' %}" alt="Logo do Projeto">
 
 Questões Reversed: 4, 5, 16, 17 e 18.
