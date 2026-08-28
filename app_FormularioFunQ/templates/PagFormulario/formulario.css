@@ -164,3 +164,71 @@ button[type="submit"]:hover {
         background-color: transparent;
     }
 }
+
+/* ==========================================================================
+   ESTILIZAÇÃO DAS PERGUNTAS ABERTAS (TEXTAREA)
+   ========================================================================== */
+
+/* Container de cada pergunta aberta */
+.pergunta-aberta {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+    text-align: left;
+}
+
+/* Rótulo / Pergunta */
+.pergunta-aberta label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-color, #333333);
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+/* Campo de texto (Textarea) */
+.pergunta-aberta textarea {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    color: var(--text-color, #333333);
+    background-color: #fafafa;
+    border: 1px solid var(--border-color, #cccccc);
+    border-radius: 8px;
+    resize: vertical; /* Permite redimensionar apenas na vertical */
+    min-height: 80px;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+/* Placeholder ou texto guia (se houver) */
+.pergunta-aberta textarea::placeholder {
+    color: #999999;
+    font-size: 0.9rem;
+}
+
+/* Efeito quando o usuário clica/digita no campo */
+.pergunta-aberta textarea:focus {
+    background-color: #ffffff;
+    border-color: var(--primary-color, #2e7d32);
+    box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.15); /* Brilho suave na cor verde principal */
+}
+
+/* Efeito sutil ao passar o mouse */
+.pergunta-aberta textarea:hover {
+    border-color: #b0b0b0;
+}
+
+/* Título de seção dentro do formulário */
+.titulo-secao-formulario {
+    font-size: 1.25rem;
+    color: var(--primary-color, #2e7d32);
+    font-weight: 700;
+    text-align: left;
+    margin-top: 32px;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--border-color, #e0e0e0);
+}

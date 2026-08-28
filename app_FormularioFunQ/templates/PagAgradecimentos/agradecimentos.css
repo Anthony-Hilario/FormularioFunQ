@@ -1,9 +1,79 @@
+:root {
+    --primary-color: #2e7d32;       /* Verde institucional */
+    --bg-color: #f4f6f8;             /* Fundo neutro suave */
+    --card-bg: #ffffff;              /* Fundo do card */
+    --text-color: #333333;
+    --text-secondary: #666666;
+    --border-radius: 12px;
+    --shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
 body {
-    display: block;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Card centralizado */
+.container-agradecimento {
+    background-color: var(--card-bg);
+    width: 100%;
+    max-width: 440px;
+    padding: 40px 24px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
     text-align: center;
 }
 
-small {
-    color: blue;
-    text-decoration: underline double;
+/* Ícone de sucesso (Círculo Verde com Checkmark) */
+.icone-sucesso {
+    width: 64px;
+    height: 64px;
+    background-color: rgba(46, 125, 50, 0.1);
+    color: var(--primary-color);
+    font-size: 2rem;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px auto;
+}
+
+/* Título */
+.titulo-agradecimento {
+    font-size: 1.6rem;
+    color: var(--primary-color);
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+/* Mensagem principal */
+.mensagem-sucesso {
+    font-size: 1rem;
+    color: var(--text-color);
+    line-height: 1.5;
+    margin-bottom: 24px;
+}
+
+/* Aviso para fechar */
+.aviso-fechar {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    background-color: #f8f9fa;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px dashed #d0d0d0;
 }
