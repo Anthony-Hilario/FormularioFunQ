@@ -8,8 +8,50 @@
     <title>Nossa Equipe</title>
 </head>
 <body>
-    <h1>Equipe de desenvolvimento</h1>
+<main class="container-principal">
+    <header class="cabecalho">
+        <h1 class="boas-vindas">Nossa Equipe</h1>
 
-    
+        <nav class="barra-nav">
+            <a href="{% url 'PaginaSobre' %}" class="nav-link">O Questionário</a>
+            <a href="{% url 'PaginaEquipe' %}" class="nav-link active">Nossa Equipe</a>
+            <a href="{% url 'PaginaIFRN' %}" class="nav-link">O IFRN</a>
+        </nav>
+    </header>
+
+    <section class="conteudo-principal text-left">
+        <!-- Card / Mini Portfólio 1: Estudante -->
+        <article class="membro-card">
+            <div class="membro-header">
+                <div class="membro-avatar">AH</div>
+                <div>
+                    <h2 class="membro-nome">Anthony Hilário</h2>
+                    <span class="membro-funcao">Estudante e Desenvolvedor Web</span>
+                </div>
+            </div>
+            <p class="texto-descricao">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+            </p>
+        </article>
+
+        <!-- Card / Mini Portfólio 2: Professor / Orientador -->
+        <article class="membro-card">
+            <div class="membro-header">
+                <div class="membro-avatar">IB</div>
+                <div>
+                    <h2 class="membro-nome">Ítalo Berg</h2>
+                    <span class="membro-funcao">Professor Orientador</span>
+                </div>
+            </div>
+            <p class="texto-descricao">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+            </p>
+        </article>
+
+        <a href="{% url 'PaginaInicial' %}" class="btn-voltar">
+            ← Voltar ao Início
+        </a>
+    </section>
+</main>
 </body>
 </html>

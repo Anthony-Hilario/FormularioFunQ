@@ -8,8 +8,38 @@
     <title>O IFRN</title>
 </head>
 <body>
-    <h1>Sobre o IFRN</h1>
+<main class="container-principal">
+    <header class="cabecalho">
+        <h1 class="boas-vindas">O IFRN</h1>
 
-    
+        <nav class="barra-nav">
+            <a href="{% url 'PaginaSobre' %}" class="nav-link">O Questionário</a>
+            <a href="{% url 'PaginaEquipe' %}" class="nav-link">Nossa Equipe</a>
+            <a href="{% url 'PaginaIFRN' %}" class="nav-link active">O IFRN</a>
+        </nav>
+    </header>
+
+    <section class="conteudo-principal text-left">
+        <!-- Tópico 1: Sobre a Instituição -->
+        <article class="secao-info">
+            <h2 class="subtitulo-secao">Instituição</h2>
+            <p class="texto-descricao">
+                O Instituto Federal de Educação, Ciência e Tecnologia do Rio Grande do Norte (IFRN) é uma instituição pública reconhecida pela excelência no ensino técnico, tecnológico e na formação acadêmica. Atuando em diversas regiões do estado, promove a transformação social por meio da educação pública, gratuita e de qualidade.
+            </p>
+        </article>
+
+        <!-- Tópico 2: Ensino, Pesquisa e Extensão -->
+        <article class="secao-info">
+            <h2 class="subtitulo-secao">Pesquisa e Inovação</h2>
+            <p class="texto-descricao">
+                Com forte compromisso na articulação entre ensino, pesquisa e extensão, o IFRN fomenta projetos científicos e tecnológicos aplicados às necessidades da comunidade. Esta iniciativa integra os esforços de desenvolvimento de soluções educacionais inovadoras voltadas para o ensino de computação e tecnologias digitais.
+            </p>
+        </article>
+
+        <a href="{% url 'PaginaInicial' %}" class="btn-voltar">
+            ← Voltar ao Início
+        </a>
+    </section>
+</main>
 </body>
 </html>

@@ -8,22 +8,27 @@
     <title>Início Questionário</title>
 </head>
 <body>
-    <div class="cabecalho">
-        <h1 class="boas-vindas">Bem-Vindo(a)</h1>
+    <main class="container-principal">
+    <header class="cabecalho">
+        <h1 class="boas-vindas">Bem-vindo(a)</h1>
 
         <nav class="barra-nav">
-            <a href="{% url 'PaginaSobre' %}">O Questionário</a>
-            <a href="{% url 'PaginaEquipe' %}">Nossa Equipe</a>
-            <a href="{% url 'PaginaIFRN' %}">O IFRN</a>
+            <a href="{% url 'PaginaSobre' %}" class="nav-link">O Questionário</a>
+            <a href="{% url 'PaginaEquipe' %}" class="nav-link">Nossa Equipe</a>
+            <a href="{% url 'PaginaIFRN' %}" class="nav-link">O IFRN</a>
         </nav>
-    </div>
-    <p>Sua opinião é fundamental para compreendermos o aprendizado e a jogabilidade.</p>
+    </header>
 
-    <button>
+    <section class="conteudo-principal">
+        <p class="descricao">
+            Sua opinião é fundamental para compreendermos o aprendizado e a jogabilidade.
+        </p>
+
         <a href="{% url 'PaginaLogin' %}" class="btn-iniciar">
             Iniciar Questionário
         </a>
-    </button>
+    </section>
+</main>
 
     <!-- Para possíveis futuros usos de arquivos JavaScript ou imagens -->
     <!-- <script src="{% static 'app_FormularioFunQ/js/script.js' %}"></script> -->

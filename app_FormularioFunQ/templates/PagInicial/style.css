@@ -1,21 +1,212 @@
+/* ==========================================================================
+   1. VARIÁVEIS E REGRAS GERAIS
+   ========================================================================== */
+:root {
+    --primary-color: #2e7d32;       /* Verde institucional / destaque */
+    --primary-hover: #1b5e20;
+    --bg-color: #f4f6f8;             /* Fundo neutro suave */
+    --card-bg: #ffffff;              /* Fundo dos quadros */
+    --text-color: #333333;
+    --text-secondary: #555555;
+    --border-color: #e0e0e0;
+    --border-radius: 12px;
+    --shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
-.btn-iniciar {
-    text-decoration: none;
-    color: black;
-}
-
-.cabecalho {
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
     display: flex;
-    justify-content: space-between; /* Empurra o h1 para a esquerda e a nav para a direita */
-    align-items: center;            /* Alinha os itens verticalmente ao centro */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
 }
 
+/* ==========================================================================
+   2. CONTAINER PRINCIPAL (LAYOUT MOBILE-FIRST REAPROVEITÁVEL)
+   ========================================================================== */
+.container-principal {
+    background-color: var(--card-bg);
+    width: 100%;
+    max-width: 500px;
+    padding: 32px 24px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.boas-vindas {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   3. BARRA DE NAVEGAÇÃO (ESTILO PÍLULA INTEGRADA)
+   ========================================================================== */
 .barra-nav {
     display: flex;
-    gap: 20px;                      /* Espaçamento entre cada link do menu */
+    justify-content: space-around;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 28px;
+    background-color: #f0f2f5;
+    padding: 6px;
+    border-radius: 25px;
+    border: 1px solid var(--border-color);
+}
+
+.nav-link {
+    flex: 1;
+    text-align: center;
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 8px 10px;
+    border-radius: 20px;
+    transition: all 0.2s ease-in-out;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background-color: var(--card-bg);
+    color: var(--primary-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+/* ==========================================================================
+   4. ELEMENTOS DE CONTEÚDO E PÁGINAS INSTITUCIONAIS (SOBRE, EQUIPE, IFRN)
+   ========================================================================== */
+.text-left {
+    text-align: left;
+}
+
+.secao-info {
+    margin-bottom: 22px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.secao-info:last-of-type {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.subtitulo-secao {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.texto-descricao,
+.descricao {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   5. BOTÕES DE AÇÃO E NAVEGAÇÃO
+   ========================================================================== */
+.btn-iniciar {
+    display: inline-block;
+    width: 100%;
+    padding: 14px 20px;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    transition: background-color 0.2s, transform 0.1s;
+    margin-top: 10px;
+}
+
+.btn-iniciar:hover {
+    background-color: var(--primary-hover);
+}
+
+.btn-iniciar:active {
+    transform: scale(0.98);
+}
+
+.btn-voltar {
+    display: inline-block;
+    margin-top: 20px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.btn-voltar:hover {
+    color: var(--primary-color);
+}
+
+/* ==========================================================================
+   6. COMPONENTES DE EQUIPE (MINI PORTFÓLIOS)
+   ========================================================================== */
+.membro-card {
+    background-color: #fafafa;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 16px;
+    margin-bottom: 18px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.membro-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.membro-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 12px;
+}
+
+/* Avatar com iniciais em estilo circular integrado */
+.membro-avatar {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.membro-nome {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.membro-funcao {
+    font-size: 0.82rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    display: block;
+    margin-top: 2px;
 }
