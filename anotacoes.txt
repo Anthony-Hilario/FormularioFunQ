@@ -1,12 +1,6 @@
 Anotações:
-- responsividade do layout (mobile-first e pc)
-- Página inicial e demais páginas da navbar:
-    - Botão iniciar questionário (OK)
-    - Sobre o questionário e o funq
-    - Equipe de desenvolvimento
-    - O IFRN
-- Página ADM: criar tela de admin para especificar o grupo
-de teste e o condutor da pesquisa.
+- Páginas Iniciais (Equipe, IFRN, Sobre): inserir o conteúdo/textos coerentes.
+- Página ADM: criar tela de admin para especificar o grupo de teste e o condutor da pesquisa.
 - Adicionar duas colunas ao banco de dados (grupo: text; pesquisador: text)
 
 *Para possíveis futuros usos de arquivos JavaScript ou imagens
