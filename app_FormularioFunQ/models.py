@@ -5,9 +5,15 @@ class Aluno(models.Model):
     nome = models.CharField(max_length=255)
     idade = models.PositiveIntegerField()
 
+    def __str__(self):
+        return f"{self.nome} ({self.idade} anos)"
+
 
 class RespostaFormulario(models.Model):
     aluno = models.ForeignKey(Aluno, on_delete=models.CASCADE)
+
+    grupo = models.CharField(max_length=100, blank=True, null=True, verbose_name="Grupo de Teste")
+    pesquisador = models.CharField(max_length=100, blank=True, null=True, verbose_name="Pesquisador")
 
     q1 = models.PositiveSmallIntegerField()
     q2 = models.PositiveSmallIntegerField()

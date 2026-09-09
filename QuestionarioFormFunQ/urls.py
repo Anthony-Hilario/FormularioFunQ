@@ -1,4 +1,5 @@
 from django.urls import path
+from django.contrib import admin
 from app_FormularioFunQ import views
 
 urlpatterns = [
@@ -11,4 +12,5 @@ urlpatterns = [
     path('sobre/', views.PaginaSobre, name='PaginaSobre'),
     path('equipe/', views.PaginaEquipe, name='PaginaEquipe'),
     path('ifrn/', views.PaginaIFRN, name='PaginaIFRN'),
+    path('admin/', admin.site.urls),
 ]

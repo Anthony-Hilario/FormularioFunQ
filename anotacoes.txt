@@ -5,6 +5,11 @@ Anotações:
 
 *Para possíveis futuros usos de arquivos JavaScript ou imagens
 <script src="{% static 'app_FormularioFunQ/js/script.js' %}"></script>
-<img src="{% static 'app_FormularioFunQ/img/logo.png' %}" alt="Logo do Projeto">
+<img src="{% static 'app_FormularioFunQ/img/nome_img.png' %}" alt="Logo do Projeto">
 
 Questões Reversed: 4, 5, 16, 17 e 18.
+
+Administradores cadastrados (SuperUsers):
+Nome: anthony
+E-Mail: anthonyhilario.dev@gmail.com
+Senha: admin@123
