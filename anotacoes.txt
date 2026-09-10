@@ -1,7 +1,8 @@
 Anotações:
-- Páginas Iniciais (Equipe, IFRN, Sobre): inserir o conteúdo/textos coerentes.
-- Página ADM: criar tela de admin para especificar o grupo de teste e o condutor da pesquisa.
-- Adicionar duas colunas ao banco de dados (grupo: text; pesquisador: text)
+- Script para análise dos dados: converter os dados em arquivo csv e 
+fazer dashboards com tabelas, gráficos.
+- Deploy da aplicação.
+- Referenciar citação da descrição do FunQ na aba "Sobre".
 
 *Para possíveis futuros usos de arquivos JavaScript ou imagens
 <script src="{% static 'app_FormularioFunQ/js/script.js' %}"></script>
