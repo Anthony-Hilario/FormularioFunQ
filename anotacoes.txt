@@ -2,11 +2,10 @@ Anotações:
 - Script para análise dos dados: converter os dados em arquivo csv e 
 fazer dashboards com tabelas, gráficos.
 - Deploy da aplicação.
-- Referenciar citação da descrição do FunQ na aba "Sobre".
 
 *Para possíveis futuros usos de arquivos JavaScript ou imagens
-<script src="{% static 'app_FormularioFunQ/js/script.js' %}"></script>
-<img src="{% static 'app_FormularioFunQ/img/nome_img.png' %}" alt="Logo do Projeto">
+<script src="{% static 'js/script.js' %}"></script>
+<img src="{% static 'img/nome_img.png' %}" alt="Logo do Projeto">
 
 Questões Reversed: 4, 5, 16, 17 e 18.
 
