@@ -15,6 +15,7 @@ E-Mail: anthonyhilario.dev@gmail.com
 Senha: admin@123
 
 Credenciais pythonanywhere:
+Dominio: https://funqifrn.pythonanywhere.com/
 Username: funqifrn
 E-Mail: anthonyhilario.dev@gmail.com
 Senha: ProjetoFunQ@123
