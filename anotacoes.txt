@@ -13,3 +13,8 @@ Administradores cadastrados (SuperUsers):
 Nome: anthony
 E-Mail: anthonyhilario.dev@gmail.com
 Senha: admin@123
+
+Credenciais pythonanywhere:
+Username: funqifrn
+E-Mail: anthonyhilario.dev@gmail.com
+Senha: ProjetoFunQ@123
