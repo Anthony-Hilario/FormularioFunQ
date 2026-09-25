@@ -13,4 +13,6 @@ urlpatterns = [
     path('equipe/', views.PaginaEquipe, name='PaginaEquipe'),
     path('ifrn/', views.PaginaIFRN, name='PaginaIFRN'),
     path('admin/', admin.site.urls),
+    path('admin-painel/exportar-pdf/', views.gerar_pdf_questionario, name='gerar_pdf_questionario'),
+    path('admin-painel/exportar-csv/', views.exportar_csv_respostas, name='exportar_csv_respostas'),
 ]

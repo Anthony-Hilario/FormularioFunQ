@@ -13,6 +13,9 @@ class RespostaFormularioAdmin(admin.ModelAdmin):
     # Colunas que aparecerão na tabela de listagem do Admin
     list_display = ('id', 'aluno', 'grupo', 'pesquisador')
 
+    # Aponta para o arquivo que vai conter apenas o botão extra
+    change_list_template = "admin/respostaformulario_change_list.html"
+
     # Filtros laterais para facilitar a análise dos dados no TCC
     list_filter = ('grupo', 'pesquisador')
 

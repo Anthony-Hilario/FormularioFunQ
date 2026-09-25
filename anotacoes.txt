@@ -1,7 +1,9 @@
 Anotações:
 - Script para análise dos dados: converter os dados em arquivo csv e 
 fazer dashboards com tabelas, gráficos.
-- Deploy da aplicação.
+- Gerar ou documento Documento texto ou PDF para impressão. (OK)
+- Exportar em planilha.
+
 
 *Para possíveis futuros usos de arquivos JavaScript ou imagens
 <script src="{% static 'js/script.js' %}"></script>
