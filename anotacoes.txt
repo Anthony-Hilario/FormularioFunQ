@@ -1,8 +1,5 @@
 Anotações:
-- Script para análise dos dados: converter os dados em arquivo csv e 
-fazer dashboards com tabelas, gráficos.
-- Gerar ou documento Documento texto ou PDF para impressão. (OK)
-- Exportar em planilha.
+- Script para análise dos dados: dashboard com tabelas, gráficos.
 
 
 *Para possíveis futuros usos de arquivos JavaScript ou imagens
