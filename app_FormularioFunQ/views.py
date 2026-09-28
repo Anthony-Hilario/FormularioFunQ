@@ -1,14 +1,12 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Aluno, RespostaFormulario
 
-import io
+import os
 import csv
 from django.http import FileResponse, HttpResponse
 from django.contrib.admin.views.decorators import staff_member_required
-from reportlab.lib.pagesizes import letter
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
-from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
-from reportlab.lib import colors
+from django.conf import settings
+
 
 # Create your views here.
 def PaginaFormulario(request):
@@ -91,140 +89,6 @@ def Respostas(request):
         return redirect('PaginaAgradecimentos')
 
 
-@staff_member_required
-def gerar_pdf_questionario(request):
-    buffer = io.BytesIO()
-    
-    doc = SimpleDocTemplate(
-        buffer,
-        pagesize=letter,
-        rightMargin=36,
-        leftMargin=36,
-        topMargin=36,
-        bottomMargin=36
-    )
-    
-    story = []
-    styles = getSampleStyleSheet()
-
-    # Estilos
-    titulo_style = ParagraphStyle(
-        'TituloPDF',
-        parent=styles['Heading1'],
-        fontSize=15,
-        leading=18,
-        alignment=1,
-        textColor=colors.HexColor('#10b981'),
-        spaceAfter=8
-    )
-    
-    subtitulo_style = ParagraphStyle(
-        'SubtituloPDF',
-        parent=styles['Normal'],
-        fontSize=9,
-        leading=12,
-        alignment=1,
-        textColor=colors.HexColor('#64748b'),
-        spaceAfter=15
-    )
-
-    pergunta_style = ParagraphStyle(
-        'TextoPergunta',
-        parent=styles['Normal'],
-        fontSize=9.5,
-        leading=13,
-        textColor=colors.HexColor('#1e293b')
-    )
-
-    # 1. Cabeçalho
-    story.append(Paragraph("<b>Questionário de Avaliação FunQ</b>", titulo_style))
-    story.append(Paragraph("Responda às questões de 1 a 18 marcando uma nota de 1 a 5, e responda as questões abertas nas linhas indicadas.", subtitulo_style))
-    story.append(Spacer(1, 5))
-
-    # 2. Dados de Identificação do Aluno / Pesquisa
-    dados_identificacao = [
-        [Paragraph("<b>Nome do Aluno:</b> __________________________________________________", styles['Normal'])],
-        [Paragraph("<b>Turma/Série:</b> __________________ &nbsp;&nbsp; <b>Grupo:</b> __________________", styles['Normal'])],
-        [Paragraph("<b>Pesquisador:</b> ___________________ &nbsp;&nbsp; <b>Data:</b> ____/____/________", styles['Normal'])]
-    ]
-    tabela_id = Table(dados_identificacao, colWidths=[520])
-    tabela_id.setStyle(TableStyle([
-        ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
-        ('BOTTOMPADDING', (0, 0), (-1, -1), 4),
-    ]))
-    story.append(tabela_id)
-    story.append(Spacer(1, 10))
-
-    # 3. Lista de perguntas objetivas (q1 a q18) — Idênticas ao HTML
-    perguntas_objetivas = [
-        "Eu pude opinar sobre o que fazer.",                       # q1
-        "Eu pude decidir como fazer as coisas.",                  # q2
-        "Senti-me livre para fazer as coisas do meu jeito.",       # q3
-        "A atividade foi fácil demais para mim.",                  # q4
-        "A atividade foi difícil demais para mim.",                 # q5
-        "Senti que os desafios eram adequados para mim.",         # q6
-        "Eu me diverti.",                                         # q7
-        "Eu gostei da atividade.",                                # q8
-        "Eu gostaria de fazer essa atividade novamente.",          # q9
-        "Esqueci de tudo ao meu redor.",                          # q10
-        "Perdi a noção do tempo.",                                # q11
-        "Eu estava totalmente focado na atividade.",              # q12
-        "Senti-me parte do grupo.",                               # q13
-        "Senti-me confortável com os outros.",                    # q14
-        "Senti que podia ser eu mesmo.",                          # q15
-        "Senti-me estressado(a).",                                # q16
-        "Senti-me frustrado(a).",                                 # q17
-        "Senti-me entediado(a)."                                  # q18
-    ]
-
-    # Renderiza tabela para as questões 1 a 18
-    for idx, texto_pergunta in enumerate(perguntas_objetivas, 1):
-        texto_p = f"<b>{idx}.</b> {texto_pergunta}"
-        linha = [
-            Paragraph(texto_p, pergunta_style),
-            Paragraph("( ) 1 &nbsp; ( ) 2 &nbsp; ( ) 3 &nbsp; ( ) 4 &nbsp; ( ) 5", styles['Normal'])
-        ]
-        t = Table([linha], colWidths=[360, 160])
-        t.setStyle(TableStyle([
-            ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
-            ('LINEBELOW', (0, 0), (-1, -1), 0.5, colors.HexColor('#e2e8f0')),
-            ('TOPPADDING', (0, 0), (-1, -1), 3),
-            ('BOTTOMPADDING', (0, 0), (-1, -1), 3),
-        ]))
-        story.append(t)
-
-    story.append(Spacer(1, 10))
-
-    # 4. Lista de perguntas abertas / discursivas (q19 a q24) — Idênticas ao HTML
-    perguntas_discursivas = [
-        "19. O que você achou da atividade realizada?",
-        "20. Como você se sentiu durante a realização do jogo?",
-        "21. Você acredita que o jogo ajudou na compreensão dos conceitos trabalhados?",
-        "22. O que fez você permanecer interessado na atividade?",
-        "23. O que você menos gostou na atividade?",
-        "24. O que você mudaria no jogo?"
-    ]
-
-    for q_texto in perguntas_discursivas:
-        story.append(Paragraph(f"<b>{q_texto}</b>", pergunta_style))
-        story.append(Spacer(1, 3))
-        # Linhas pontilhadas para o aluno responder a lápis/caneta no PDF
-        linhas_resposta = [
-            [Paragraph("__________________________________________________________________________________", styles['Normal'])],
-            [Paragraph("__________________________________________________________________________________", styles['Normal'])]
-        ]
-        t_linhas = Table(linhas_resposta, colWidths=[520])
-        t_linhas.setStyle(TableStyle([
-            ('BOTTOMPADDING', (0, 0), (-1, -1), 2),
-        ]))
-        story.append(t_linhas)
-        story.append(Spacer(1, 6))
-
-    doc.build(story)
-    buffer.seek(0)
-    
-    return FileResponse(buffer, as_attachment=True, filename='Questionario_FunQ_Fisico.pdf')
-
 
 @staff_member_required
 def exportar_csv_respostas(request):
@@ -277,3 +141,15 @@ def exportar_csv_respostas(request):
         writer.writerow(linha)
 
     return response
+
+
+@staff_member_required
+def exportar_pdf_formulario(request):
+    # Caminho exato onde o PDF estático está salvo
+    caminho_pdf = os.path.join(settings.BASE_DIR, 'app_FormularioFunQ', 'static', 'pdf', 'Questionario_FunQ_Fisico.pdf')
+    
+    if os.path.exists(caminho_pdf):
+        # O FileResponse entrega o arquivo com baixo consumo de memória
+        return FileResponse(open(caminho_pdf, 'rb'), as_attachment=True, filename='Formulario_FunQ.pdf')
+    
+    raise Http404("Arquivo PDF não encontrado no servidor.")
