@@ -2,11 +2,10 @@ from django.db import models
 
 # Create your models here.
 class Aluno(models.Model):
-    nome = models.CharField(max_length=255)
     idade = models.PositiveIntegerField()
 
     def __str__(self):
-        return f"{self.nome} ({self.idade} anos)"
+        return f"{self.idade} anos"
 
 
 class RespostaFormulario(models.Model):

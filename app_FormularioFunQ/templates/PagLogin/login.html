@@ -16,19 +16,6 @@
         <!-- Configure os atributos 'method' e 'action' de acordo com a sua rota backend -->
         <form id="access-form" method="post" action="{% url 'listagem_alunos' %}">
             {% csrf_token %}
-            <!-- Campo Nome -->
-            <div class="input-block">
-                <label for="student-name">Nome Completo</label>
-                <input 
-                    type="text" 
-                    id="student-name" 
-                    name="name" 
-                    placeholder="Digite seu nome..." 
-                    required 
-                    autocomplete="name"
-                >
-            </div>
-
             <!-- Campo Idade -->
             <div class="input-block">
                 <label for="student-age">Idade</label>

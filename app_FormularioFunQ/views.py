@@ -97,10 +97,10 @@ def exportar_csv_respostas(request):
 
     writer = csv.writer(response, delimiter=';')
 
-    # Cabeçalho do CSV
+    # Cabeçalho do CSV anônimo
     cabecalho = [
         'ID',
-        'Nome do Aluno',
+        'Idade',
         'Grupo de Teste',
         'Pesquisador',
         # Questões objetivas (q1 a q18)
@@ -119,12 +119,12 @@ def exportar_csv_respostas(request):
     respostas = RespostaFormulario.objects.select_related('aluno').all().order_by('id')
 
     for r in respostas:
-        # Pega o nome do aluno ou salva como N/A se não houver aluno associado
-        nome_aluno = r.aluno.nome if (r.aluno and hasattr(r.aluno, 'nome')) else str(r.aluno) if r.aluno else 'N/A'
+        # Pega a idade do aluno ou define como 'N/A' se não houver registro associado
+        idade_aluno = r.aluno.idade if r.aluno else 'N/A'
 
         linha = [
             r.id,
-            nome_aluno,
+            idade_aluno,
             r.grupo or '',
             r.pesquisador or '',
             # Valores de q1 a q18
