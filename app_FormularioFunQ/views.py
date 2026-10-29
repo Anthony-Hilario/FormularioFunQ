@@ -35,7 +35,6 @@ def PaginaIFRN(request):
 def Alunos(request):
     #salvar os dados do aluno para o banco de dados
     novo_aluno = Aluno()
-    novo_aluno.nome = request.POST.get('name')
     novo_aluno.idade = request.POST.get('age')
     novo_aluno.save()
 
@@ -45,7 +44,7 @@ def Alunos(request):
 
 
 
-QUESTOES_REVERSAS = {4, 5, 16, 17, 18}
+QUESTOES_REVERSAS = {2, 16, 17, 18}
 ESCALA_MIN = 1
 ESCALA_MAX = 5
 
