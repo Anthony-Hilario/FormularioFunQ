@@ -15,4 +15,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('admin-painel/exportar-pdf/', views.exportar_pdf_formulario, name='gerar_pdf_questionario'),
     path('admin-painel/exportar-csv/', views.exportar_csv_respostas, name='exportar_csv_respostas'),
+    path('admin-painel/relatorio-medias/', views.relatorio_medias_dimensoes, name='relatorio_medias'),
 ]

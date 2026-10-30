@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Relatório de Médias - FunQ</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; background-color: #f9f9f9; color: #333; }
+        h2 { color: #2c3e50; }
+        table { width: 100%; border-collapse: collapse; background: #fff; margin-top: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        th, td { padding: 12px 15px; border: 1px solid #ddd; text-align: center; }
+        th { background-color: #2c3e50; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        .footer-github { margin-top: 30px; padding: 20px; background: #eef2f5; border-radius: 5px; text-align: center; }
+        .btn { display: inline-block; padding: 10px 20px; background: #24292e; color: #fff; text-decoration: none; border-radius: 4px; font-weight: bold; margin-top: 10px; }
+        .btn:hover { background: #444; }
+    </style>
+</head>
+<body>
+
+    <h2>Relatório Consolidado: Médias das Dimensões do FunQ</h2>
+    <p>Visualização rápida das médias calculadas por aluno/submissão com base nas diretrizes do instrumento.</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Idade</th>
+                <th>Grupo</th>
+                <th>Autonomia</th>
+                <th>Desafio</th>
+                <th>Prazer</th>
+                <th>Imersão</th>
+                <th>Barreiras Sociais</th>
+                <th>Estresse</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in resultados_turma %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.idade }}</td>
+                <td>{{ item.grupo }}</td>
+                <td>{{ item.Autonomia }}</td>
+                <td>{{ item.Desafio }}</td>
+                <td>{{ item.Prazer }}</td>
+                <td>{{ item.Imersão }}</td>
+                <td>{{ item.Barreiras_Sociais }}</td>
+                <td>{{ item.Estresse }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="9">Nenhum dado encontrado.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="footer-github">
+        <p>Precisa de análises estatísticas aprofundadas, correlações ou gráficos avançados?</p>
+        <a href="https://github.com/Anthony-Hilario/AnaliseDadosFunQ" target="_blank" class="btn">
+            Acessar Repositório de Análises no GitHub
+        </a>
+    </div>
+
+</body>
+</html>

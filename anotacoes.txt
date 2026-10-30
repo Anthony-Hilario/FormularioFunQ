@@ -6,7 +6,7 @@ Anotações:
 <script src="{% static 'js/script.js' %}"></script>
 <img src="{% static 'img/nome_img.png' %}" alt="Logo do Projeto">
 
-Questões Reversed: 4, 5, 16, 17 e 18.
+Questões Reversed: 2, 16, 17 e 18.
 
 Administradores cadastrados (SuperUsers):
 Nome: anthony

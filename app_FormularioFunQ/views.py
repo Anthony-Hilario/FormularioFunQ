@@ -152,3 +152,57 @@ def exportar_pdf_formulario(request):
         return FileResponse(open(caminho_pdf, 'rb'), as_attachment=True, filename='Formulario_FunQ.pdf')
     
     raise Http404("Arquivo PDF não encontrado no servidor.")
+
+
+@staff_member_required
+def relatorio_medias_dimensoes(request):
+    # Dicionário mapeando as dimensões do FunQ às colunas correspondentes
+    dimensoes_map = {
+        'Autonomia': ['q1', 'q2', 'q3'],
+        'Desafio': ['q4', 'q5', 'q6'],
+        'Prazer': ['q7', 'q8', 'q9'],
+        'Imersão': ['q10', 'q11', 'q12'],
+        'Barreiras_Sociais': ['q13', 'q14', 'q15'],
+        'Estresse': ['q16', 'q17', 'q18'],
+    }
+    
+    # Busca todas as respostas cadastradas, otimizando com select_related
+    respostas = RespostaFormulario.objects.select_related('aluno').all().order_by('id')
+    
+    resultados_turma = []
+    
+    for r in respostas:
+        dados_aluno = {
+            'id': r.id,
+            'idade': r.aluno.idade if r.aluno else 'N/A',
+            'grupo': r.grupo or 'Não informado',
+        }
+        
+        # Calcula a média para cada uma das 6 dimensões
+        for nome_dimensao, colunas in dimensoes_map.items():
+            valores = []
+            for q_str in colunas:
+                # Extrai o número da questão (ex: 'q2' vira o inteiro 2)
+                q_num = int(q_str[1:])
+                valor = getattr(r, q_str)
+                
+                if valor is not None:
+                    # Aplica a mesma regra de escore reverso que você já usa no salvamento
+                    if q_num in QUESTOES_REVERSAS:
+                        valor = (ESCALA_MAX + ESCALA_MIN) - valor
+                    valores.append(valor)
+            
+            # Calcula a média aritmética da dimensão, se houver valores
+            if valores:
+                media = sum(valores) / len(valores)
+                dados_aluno[nome_dimensao] = round(media, 2)
+            else:
+                dados_aluno[nome_dimensao] = '-'
+                
+        resultados_turma.append(dados_aluno)
+        
+    context = {
+        'resultados_turma': resultados_turma,
+    }
+    
+    return render(request, 'admin/relatorio_medias.html', context)
