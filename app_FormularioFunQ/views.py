@@ -187,9 +187,6 @@ def relatorio_medias_dimensoes(request):
                 valor = getattr(r, q_str)
                 
                 if valor is not None:
-                    # Aplica a mesma regra de escore reverso que você já usa no salvamento
-                    if q_num in QUESTOES_REVERSAS:
-                        valor = (ESCALA_MAX + ESCALA_MIN) - valor
                     valores.append(valor)
             
             # Calcula a média aritmética da dimensão, se houver valores
