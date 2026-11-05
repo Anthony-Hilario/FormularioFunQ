@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Aluno, RespostaFormulario
+from .models import Aluno, RespostaFormulario, QuestoesAbertasPersonalizadas, RespostasPersonalizadas
 
 import os
 import csv
@@ -187,8 +187,6 @@ def relatorio_medias_dimensoes(request):
                 valor = getattr(r, q_str)
                 
                 if valor is not None:
-                    if q_num in QUESTOES_REVERSAS:
-                        valor = (ESCALA_MAX + ESCALA_MIN) - valor
                     valores.append(valor)
             
             # Calcula a média aritmética da dimensão, se houver valores
@@ -205,3 +203,31 @@ def relatorio_medias_dimensoes(request):
     }
     
     return render(request, 'admin/relatorio_medias.html', context)
+
+
+def formulario_personalizado(request):
+    if request.method == 'POST':
+        # Percorre todos os campos enviados no formulário
+        for key, value in request.POST.items():
+            if key.startswith('questao_'):
+                questao_id = key.split('_')[1]
+                texto_resposta = value.strip()
+                
+                # Se o aluno digitou algo, salva no banco
+                if texto_resposta:
+                    questao = QuestoesAbertasPersonalizadas.objects.get(id=questao_id)
+                    RespostasPersonalizadas.objects.create(
+                        questao=questao,
+                        texto_resposta=texto_resposta
+                    )
+        
+        # Redireciona de volta ou para uma página de sucesso
+        return redirect('PaginaAgradecimentos')
+
+    # GET: Busca apenas as questões ativas
+    questoes = QuestoesAbertasPersonalizadas.objects.filter(ativa=True)
+    
+    contexto = {
+        'questoes': questoes
+    }
+    return render(request, 'formulario_personalizado.html', contexto)

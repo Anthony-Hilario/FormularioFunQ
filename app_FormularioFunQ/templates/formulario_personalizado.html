@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulário de Feedback</title>
+</head>
+<body>
+    <div style="max-width: 600px; margin: 40px auto; font-family: sans-serif;">
+        <h2>Formulário de Avaliação</h2>
+        <p>Por favor, responda às questões abaixo. Suas respostas são anônimas.</p>
+
+        <form method="POST">
+            {% csrf_token %}
+            
+            {% for q in questoes %}
+                <div style="margin-bottom: 20px;">
+                    <label style="font-weight: bold; display: block; margin-bottom: 8px;">
+                        {{ forloop.counter }}. {{ q.pergunta }}
+                    </label>
+                    <textarea name="questao_{{ q.id }}" rows="4" style="width: 100%; padding: 8px;" placeholder="Digite sua resposta aqui..."></textarea>
+                </div>
+            {% empty %}
+                <p>Nenhuma questão disponível no momento.</p>
+            {% endfor %}
+
+            {% if questoes %}
+                <button type="submit" style="padding: 10px 20px; background-color: #007BFF; color: white; border: none; cursor: pointer;">
+                    Enviar Respostas
+                </button>
+            {% endif %}
+        </form>
+    </div>
+</body>
+</html>

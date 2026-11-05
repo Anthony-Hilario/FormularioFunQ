@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Aluno, RespostaFormulario
+from .models import Aluno, RespostaFormulario, QuestoesAbertasPersonalizadas, RespostasPersonalizadas
 
 
 @admin.register(Aluno)
@@ -48,3 +48,14 @@ class RespostaFormularioAdmin(admin.ModelAdmin):
             )
         }),
     )
+
+@admin.register(QuestoesAbertasPersonalizadas)
+class QuestoesAbertasAdmin(admin.ModelAdmin):
+    list_display = ('id', 'grupo', 'pesquisador', 'pergunta', 'ativa')
+    list_filter = ('grupo', 'ativa', 'pesquisador')
+    search_fields = ('pergunta', 'grupo', 'pesquisador')
+
+@admin.register(RespostasPersonalizadas)
+class RespostasPersonalizadasAdmin(admin.ModelAdmin):
+    list_display = ('id', 'questao', 'texto_resposta')
+    search_fields = ('texto_resposta',)

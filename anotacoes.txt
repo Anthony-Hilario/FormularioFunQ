@@ -1,5 +1,9 @@
 Anotações:
-- Script para análise dos dados: dashboard com tabelas, gráficos.
+- Funcionalidade secundária de permitir o pesquisador inserir respostas
+abertas personalizadas.
+    - Fazer uma página secundária contendo apenas as perguntas personalizadas.
+      Para chegar a esta página, o usuário digita /personalizado no final da URL
+      (ou faz uso de um QR Code).
 
 
 *Para possíveis futuros usos de arquivos JavaScript ou imagens

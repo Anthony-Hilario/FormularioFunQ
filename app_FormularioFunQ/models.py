@@ -39,3 +39,25 @@ class RespostaFormulario(models.Model):
     q22_fator_interesse = models.TextField(blank=True, null=True)
     q23_pontos_negativos = models.TextField(blank=True, null=True)
     q24_sugestoes_mudanca = models.TextField(blank=True, null=True)
+
+
+class QuestoesAbertasPersonalizadas(models.Model):
+    grupo = models.CharField(max_length=100, verbose_name="Grupo / Turma")
+    pesquisador = models.CharField(max_length=100, verbose_name="Pesquisador")
+    pergunta = models.TextField(verbose_name="Enunciado da Pergunta")
+    ativa = models.BooleanField(default=True, verbose_name="Ativa (Exibir no formulário)")
+
+    def __str__(self):
+        return f"[{self.grupo}] {self.pergunta[:40]}..."
+
+
+class RespostasPersonalizadas(models.Model):
+    questao = models.ForeignKey(
+        QuestoesAbertasPersonalizadas, 
+        on_delete=models.CASCADE, 
+        related_name='respostas'
+    )
+    texto_resposta = models.TextField(verbose_name="Texto da Resposta")
+
+    def __str__(self):
+        return f"Resposta ID #{self.id} (Questão #{self.questao.id})"
